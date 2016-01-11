@@ -1,0 +1,38 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.8	//
+BINDIR	Makefile	/^BINDIR     ?= $(ROOTBINDIR)\/linux$/;"	m
+CC	Makefile	/^CC         := gcc$/;"	m
+CCFILES	Makefile	/^CCFILES         := p3.c$/;"	m
+CCOFILES	Makefile	/^CCOFILES        :=$/;"	m
+COMMONDIR	Makefile	/^COMMONDIR  := $(ROOTDIR)\/common$/;"	m
+CUDA_INSTALL_PATH	Makefile	/^CUDA_INSTALL_PATH := \/usr\/local\/cuda$/;"	m
+CUFILES	Makefile	/^CUFILES         := scheduler.cu$/;"	m
+CXX	Makefile	/^CXX        := g++$/;"	m
+DOLINK	Makefile	/^DOLINK    := -lcuda -lcudart -lGL -lGLU$/;"	m
+Done	p3.h	/^        int Done;$/;"	m	struct:taskQueue_t
+EXECUTABLE	Makefile	/^EXECUTABLE      := p3$/;"	m
+FAILURE	p3.h	2;"	d
+LIB	Makefile	/^LIB       := -L\/usr\/local\/cuda\/lib64 -L\/ncsu\/gcc346\/lib$/;"	m
+LIBDIR	Makefile	/^LIBDIR     := $(ROOTDIR)\/lib$/;"	m
+LINK	Makefile	/^LINK       := g++ -fPIC$/;"	m
+MAX_TASK	p3.h	3;"	d
+N	p3.c	4;"	d	file:
+NVCC	Makefile	/^NVCC       := nvcc -arch=compute_20 -code="sm_20,compute_20"$/;"	m
+ROOTBINDIR	Makefile	/^ROOTBINDIR := $(ROOTDIR)\/bin$/;"	m
+ROOTDIR	Makefile	/^ROOTDIR    := \/usr\/local\/NVIDIA_CUDA_SDK\/common$/;"	m
+ROOTOBJDIR	Makefile	/^ROOTOBJDIR ?= obj$/;"	m
+SRCDIR	Makefile	/^SRCDIR     ?=$/;"	m
+SUCCESS	p3.h	1;"	d
+end	p3.h	/^        struct timeval end;$/;"	m	struct:taskQueue_t	typeref:struct:taskQueue_t::timeval
+func	p3.h	/^        op_func_t func;$/;"	m	struct:taskQueue_t
+main	p3.c	/^int main(int argc, char *argv[]){$/;"	f
+op_func_t	p3.h	/^typedef void* (*op_func_t) (void*);$/;"	t
+queue	p3.h	/^taskQueue_t *queue;$/;"	v
+start	p3.h	/^        struct timeval start;$/;"	m	struct:taskQueue_t	typeref:struct:taskQueue_t::timeval
+taskQueue_t	p3.h	/^typedef struct taskQueue_t{$/;"	s
+taskQueue_t	p3.h	/^} taskQueue_t;$/;"	t	typeref:struct:taskQueue_t
+val	p3.h	/^        int val;$/;"	m	struct:taskQueue_t

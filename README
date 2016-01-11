@@ -1,0 +1,62 @@
+Compilation Command:
+make clean; make
+
+Execution command:
+1st arg - No of Threads per SM
+2nd arg - Type of Tasks
+
+Type of Tasks: 1 : Large Task 100 tasks. 2: Medium Tasks 50 tasks. 3: Small Tasks 10 tasks. 4: Mixed 200 Tasks
+
+Example:
+For Large Tasks:
+./p3 7 1
+O/P gave this matrix output after printing the task results:
+N X M Matrix
+Done[]|Count[]
+3|3 3|3 3|3 3|3 3|3 3|3 3|3
+3|3 3|3 3|3 3|3 3|3 3|3 3|3
+3|3 3|3 2|3 2|3 2|3 2|3 2|3
+2|3 2|3 2|3 2|3 2|3 2|3 2|3
+2|3 2|3 2|3 2|3 2|3 2|3 2|3
+2|3 2|3 2|3 2|3 2|3 2|3 2|3
+
+The count matrix shows total 100 tasks were completed. The initial threads for SM1 and SM2 and some in SM3 did 3 tasks while the rest did only 2 tasks.Done field shows for how long the individual threads waited to get task. The last few tasks which did only 2 tasks still waited for 3 times.
+
+For Medium Tasks:
+./p3 7 2
+N X M Matrix
+Done[]|Count[]
+2|2 2|2 2|2 2|2 2|2 2|2 2|2
+1|2 1|2 1|2 1|2 1|2 2|2 1|2
+1|2 1|2 1|2 1|2 1|2 1|2 1|2
+1|2 1|2 1|2 1|2 1|2 1|2 1|2
+1|2 1|2 1|2 1|2 1|2 1|2 1|2
+1|2 1|2 1|2 1|2 1|2 1|2 1|2
+
+Similar observation here with 50 small tasks. Threads of all SMs did 1 task each except SM1 and 2 where a few threads picked 2 tasks as well. Done field shows total number of tasks done. Count field shows the waiting for each thread.
+
+For Small Tasks:
+./p3 6 3
+N X M Matrix
+Done[]|Count[]
+1|1 1|1 1|1 1|1 1|1 1|1 1|1
+1|1 1|1 1|1 0|1 0|1 0|1 0|1
+0|1 0|1 0|1 0|1 0|1 0|1 0|1
+0|1 0|1 0|1 0|1 0|1 0|1 0|1
+0|1 0|1 0|1 0|1 0|1 0|1 0|1
+0|1 0|1 0|1 0|1 0|1 0|1 0|1
+
+All the 10 tasks were picked up by SM1 and SM2 and finished. Everyone waited for them to finish as can be seen by count.
+
+For Mixed 200 Tasks:
+./p3 6 4
+N X M Matrix
+Done[]|Count[]
+5|6 5|6 5|6 5|6 5|6 5|6 5|6
+5|6 5|6 5|6 5|6 5|6 5|6 5|6
+5|6 5|6 5|6 5|6 5|6 5|6 5|6
+5|6 5|6 5|6 5|6 7|6 6|6 6|6
+4|5 4|5 4|5 4|5 4|5 4|5 4|5
+4|5 4|5 4|5 4|5 4|5 4|5 4|5
+
+We can see threads picked 4,6,6 even 7 tasks among themselves
